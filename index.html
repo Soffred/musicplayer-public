@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Musikspelare</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" data-auto-replace-svg="nest"></script>
+  
+  </head>
+
+  <body>
+    <div class="music-header"> 
+        <i class="fa fa-chevron-left"></i>
+      <head class="title">Playlist- Moody</head>
+      <i class="fa fa-ellipsis-v"></i>
+    </div>
+
+
+
+    <div class="flex-container">
+      <article class ="left-side">
+          <ul class ="playlist">
+            <li>
+            <img src= "images/covers/cover1.jpg" height="70px" width="70px" data-sound="http://www.tegos.ru/new/mp3_full/Adele_-_Rolling_In_The_Deep.mp3" song ="Desire" artist = "Years and Years"> <span>Desire</span><i class="fas fa-play-circle"></i>
+            </li>
+
+            <li>
+              <img src="images/covers/Sigala.jpg" height="70px" width="70px" data-sound="http://www.mythium.net/" song ="Younger" artist="Kygo"> Younger <i class="fas fa-play-circle"></i>
+            </li>
+            <li>
+                <img src= "images/covers/cover1.jpg" height="70px" width="70px" data-sound="http://www.tegos.ru/new/mp3_full/Adele_-_Rolling_In_The_Deep.mp3" song ="Desire" artist = "Years and Years"> Desire <i class="fas fa-play-circle"></i>
+            </li>
+
+            <li>
+                  <img src="images/covers/Sigala.jpg" height="70px" width="70px" data-sound="media/Younger.mp3" song ="Younger" artist="Kygo"> Younger <i class="fas fa-play-circle"></i>
+            </li>
+
+            <li>
+                    <img src= "images/covers/cover1.jpg" height="70px" width="70px" audio src="media/Desire.mp3" song ="Desire" artist = "Years and Years"> Desire <i class="fas fa-play-circle"></i>
+            </li>
+
+            <li>
+              <img src="images/covers/Sigala.jpg" height="70px" width="70px" audio src="media/Younger.mp3" song ="Younger" artist="Kygo"> Younger <i class="fas fa-play-circle"></i>
+            </li>
+
+            <li>
+            <img src= "images/covers/cover1.jpg" height="70px" width="70px" audio src="media/Desire.mp3" song ="Desire" artist = "Years and Years"> Desire <i class="fas fa-play-circle"></i>
+            </li>
+
+          </ul>
+
+  
+
+
+
+      </article>
+
+
+      <aside class ="right-side">
+          <section id ="audio-img">
+            <img id ="cover">
+
+          </section>
+
+            <section id = "audio-player">
+                <section id ="audio-info">
+                  <span class ="song-play"></span> 
+                </section>
+
+                <section class="songname">
+                 <span>Years and Years - Desire</span>
+                </section>
+
+               
+
+                <div class="time-slider">
+                  <span class="runing_time">0:00</span>
+                  <input type="range" value="0">
+                  <span class="song_long">0:00</span>
+
+                 
+                </div>
+
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i class="fas fa-plus-circle"></i>
+
+                
+                
+                <section id = "audio-buttons">
+                    
+
+                <i class="fas fa-backward fa-3x"></i>
+                <i class="fas fa-play-circle fa-3x"> </i>
+                <i class="fas fa-pause-circle  fa-3x"></i> 
+                <i class="fas fa-stop-circle fa-3x"></i>
+                <i class="fas fa-forward fa-3x"></i>
+
+          </section>
+
+         
+
+            
+         
+
+        </aside>
+            
+    </div>
+
+    <script>
+    
+
+$(".fa-pause-circle").hide();
+
+function initAudioPlayer(){
+
+}
+
+
+var audio = new Audio('http://www.tegos.ru/new/mp3_full/Adele_-_Rolling_In_The_Deep.mp3');
+
+var audioTotalTime = 0;
+$('body').on('click','.fa-play-circle',function(e){
+  audio.play();
+  audioTotalTime = audio.duration / 60;
+  $(this).addClass('fa-pause-circle')
+  $(this).removeClass('fa-play-circle');
+  $('.song_long').text(Math.round(audioTotalTime * 100) / 100);
+  updateCurrentTime();
+});
+
+$('body').on('click','input[type=range]',function(){
+  audio.pause();
+  audio.currentTime = audioTotalTime * $(this).val();
+   audio.play();
+});
+
+$('body').on('click','.fa-pause-circle',function(){
+  audio.pause();
+  $(this).addClass('fa-play-circle')
+  $(this).removeClass('fa-pause-circle');
+});
+
+
+
+function updateCurrentTime(){
+  setInterval(function(){
+    var time = audio.currentTime;
+    var minutes = Math.floor(time / 60);   
+    var seconds = Math.floor(time);
+    seconds = (seconds - (minutes * 60 )) < 10 ? ('0' + (seconds - (minutes * 60 ))) : (seconds - (minutes * 60 )); 
+    var currentTime = minutes + ':' + seconds;
+    $('.runing_time').text(currentTime);
+    $("input[type=range]").val(time/audioTotalTime )
+  },1000)
+ 
+}
+    </script>
+  </body>
+</html>

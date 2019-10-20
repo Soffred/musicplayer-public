@@ -1,0 +1,264 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+}
+
+
+body {
+  box-sizing: border-box;
+  background: #00223E;
+  color: #eeeeee;
+  font-family: 'Abel', sans-serif;
+}
+
+.clearfix{
+  clear: both;
+}
+
+.flex-container{
+  display: flex;
+
+}
+
+.music-header{
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px solid white;
+  text-align: center;
+  margin-top: 20px;
+  font-size: 20px;
+ 
+}
+
+
+
+.music-header .fa-chevron-left{
+  float: left;
+  
+
+}
+
+
+.music-header .fa-ellipsis-v{
+  float: right;
+  
+}
+
+.left-side{
+  flex: 50%;
+  padding: 0 4px;
+  border: white solid;
+  height: auto;
+  display: flex;
+ 
+}
+
+
+
+.right-side {
+float: right;
+width: 50%;
+border: white solid;
+justify-content: center;
+flex-direction: column;
+
+
+}
+
+#audio-img{
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  margin-bottom: 15px;
+  background: url(https://upload.wikimedia.org/wikipedia/en/thumb/3/3a/Years_%26_Years_feat._Tove_Lo_Desire_cover_.jpg/220px-Years_%26_Years_feat._Tove_Lo_Desire_cover_.jpg)
+}
+
+#audio-info{
+  text-align: center;
+}
+
+#audio-info .artist{
+  font-weight: bold;
+
+  
+}
+
+.cover{
+  width: 100%;
+  z-index: 1;
+}
+
+input#volume{
+  width: 95%;
+  margin-left: 2%;
+  background: grey;
+  height: 2px;
+  margin-bottom: 20px;
+}
+
+#audio-buttons{
+  margin-top: 10px;
+  align-items: center;
+}
+
+button#play{
+	width:70px;
+	height:70px;
+
+}
+
+button#pause{
+	width:70px;
+	height:70px;
+
+}
+
+button#stop{
+	width:70px;
+	height:70px;
+	
+}
+
+button#prev{
+	width:70px;
+	height:70px;
+  margin-top:15px;
+  margin-left: 230px;
+}
+
+button#next{
+	width:70px;
+	height:70px;
+  margin-top:15px;
+}
+
+
+.playlist{
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  
+}
+
+
+
+.playlist .fa-play-circle{
+  float:right;
+  margin-top: 25px;
+}
+
+
+.time-slider{
+  margin-left: 280px;
+}
+
+  .runing_time{
+    left:1rem;
+    color:#FECF7D;
+  }
+  .song_long{
+    right:1rem;
+    color:#775B8E;
+  }
+
+  .fa-plus-circle{
+    float: left;
+    
+    
+
+  }
+  .fa-heart{
+    float: right;
+    
+  
+  
+
+  }
+
+  .playlist{
+    display: inline-block;
+  }
+
+  #audio-buttons{
+    align-content: center;
+    margin-left:230px;
+  }
+
+  .songname{
+  margin-left:300px;
+  }
+  .h1 .songname{
+    margin-left:
+  }
+
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
